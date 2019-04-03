@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse bg_color_grn">
   <div class="container">
-    <%= link_to 'EngineerQUIZ', '#', id: 'logo' %>
+    <%= link_to 'EngineerQUIZ', root_path, id: 'logo' %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ホーム", root_path, class: 'color_wht' %></li>
+        <li><%= link_to 'ホーム', root_path, class: 'color_wht' %></li>
         <li><%= link_to '配信情報一覧', delivery_histories_path, class: 'color_wht' %></li>
         <li><%= link_to '月間配信情報の追加', new_delivery_history_path, class: 'color_wht' %></li>
       </ul>

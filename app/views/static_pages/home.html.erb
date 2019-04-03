@@ -1,6 +1,6 @@
-<% provide(:title, "ホーム") %>
+<% provide(:title, 'ホーム') %>
 
-<div class="center jumbotron">
+<div class="center jumbotron margin_t_40">
   <h1>EngineerQUIZ</h1>
   <p>〜LINE@の月間料金計算ができます〜</p>
   
@@ -8,17 +8,13 @@
   
   <div class="center padding_r_200 padding_l_200">
     <%= form_tag '/calculate', method: :get, class: "" do %>
-      <%#= label_tag 'name', 'プラン' %>
-      <%#= select_tag :plan, options_for_select(plan_list), class: "form-control" %>
-      
-      <%#= label_tag 'name', '今月の配信予定通数を入力してください', class: "margin_t_15" %>
       <%= number_field_tag :send_count, params[:send_count], class: "form-control" %>
       <%= submit_tag '計算する', name: 'calculate', class: "btn btn-lg btn-primary margin_t_15" %>
     <% end %>
   </div>
   
   <% if @free_plan.present? || @light_plan.present? || @standard_plan.present? %>
-    <div class="table-responsive  margin_t_40">
+    <div class="table-responsive margin_t_40">
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
