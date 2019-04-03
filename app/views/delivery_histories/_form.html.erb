@@ -10,10 +10,10 @@
   </div>
   
   <%= f.label '月間配信通数' %>
-  <%= f.number_field :send_count, class: 'form-control', required: 'required' %>
+  <%= f.number_field :send_count, max: 1045000, class: 'form-control', required: 'required' %>
   
   <%= f.label '合計金額' %>
-  <%= f.number_field :total_amount, class: 'form-control', required: 'required' %>
+  <%= f.number_field :total_amount, max: 3000000, class: 'form-control', required: 'required' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
