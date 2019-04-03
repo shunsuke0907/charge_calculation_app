@@ -1,0 +1,23 @@
+<% provide(:title, @title) %>
+
+<h1><%= @title %></h1>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">配信月</th>
+        <th class="text-center">プラン</th>
+        <th class="text-center">月間配信通数</th>
+        <th class="text-center">合計金額</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @delivery_histories %>
+    </tbody>
+  </table>
+  
+  <%#= link_to '拠点情報の追加', new_basis_path, class: 'btn btn-primary' %>
+</div>

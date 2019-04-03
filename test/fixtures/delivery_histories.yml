@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  delivery_month: 2019-04-03
+  plan: 1
+  send_count: 1
+  total_amount: 1
+
+two:
+  delivery_month: 2019-04-03
+  plan: 1
+  send_count: 1
+  total_amount: 1

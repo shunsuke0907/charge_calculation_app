@@ -1,0 +1,9 @@
+<tr>
+  <td class="text-center"><%= delivery_history.delivery_month.to_s(:year_month) %></td>
+  <td class="text-center"><%= plan_list_hash[delivery_history.plan] %></td>
+  <td class="text-center"><%= delivery_history.send_count.to_s(:delimited) %>通</td>
+  <td class="text-center"><%= delivery_history.total_amount.to_s(:delimited) %>円</td>
+  <td class="text-center">
+    <%= link_to '編集', edit_delivery_history_path(delivery_history.id), class: 'btn btn-primary' %>
+  </td>
+</tr>
