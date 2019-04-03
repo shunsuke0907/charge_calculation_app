@@ -26,7 +26,6 @@ textarea {
   }
 }
 
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -87,6 +86,29 @@ select {
   margin-bottom: 15px;
 }
 
+/* custom */
+
+.font_size_18 {
+  font-size: 18px !important;
+}
+
+.font_weight_b {
+  font-weight: bold !important;
+}
+
+.color_wht {
+  color: white !important;
+}
+
+.bg_color_grn {
+  background-color: #2cbf13;
+  border-color: #2cbf13;
+}
+
+.bg_color_wht {
+  background-color: white !important;
+}
+
 .padding_r_200 {
   padding-right: 40%;
 }
@@ -95,6 +117,10 @@ select {
   padding-left: 40%;
 }
 
-.margin_t_30 {
-  margin-top: 20px;
+.margin_t_15 {
+  margin-top: 15px;
+}
+
+.margin_t_40 {
+  margin-top: 40px;
 }

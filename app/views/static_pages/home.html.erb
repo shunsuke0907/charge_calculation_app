@@ -2,21 +2,40 @@
 
 <div class="center jumbotron">
   <h1>EngineerQUIZ</h1>
-  <p>LINE@の料金計算ができます</p>
-  <%#= link_to "アカウント作成", '#', class: "btn btn-lg btn-primary" %>
+  <p>〜LINE@の月間料金計算ができます〜</p>
   
-  <p>契約プランと今月の配信予定通数を入力してください</p>
+  <p class="margin_t_40 font_weight">月間配信通数を入力してください</p>
   
   <div class="center padding_r_200 padding_l_200">
     <%= form_tag '/calculate', method: :get, class: "" do %>
-      <%= label_tag 'name', 'プラン' %>
-      <%= select_tag :plan, options_for_select(plan_list), class: "form-control" %>
+      <%#= label_tag 'name', 'プラン' %>
+      <%#= select_tag :plan, options_for_select(plan_list), class: "form-control" %>
       
-      <%= label_tag 'name', '月間配信予定通数', class: "margin_t_30" %>
+      <%#= label_tag 'name', '今月の配信予定通数を入力してください', class: "margin_t_15" %>
       <%= number_field_tag :send_count, params[:send_count], class: "form-control" %>
-      <%= submit_tag '計算する', name: 'calculate', class: "btn btn-lg btn-primary margin_t_30" %>
+      <%= submit_tag '計算する', name: 'calculate', class: "btn btn-lg btn-primary margin_t_15" %>
     <% end %>
   </div>
   
-  <h2><%= @monthly_amount %></h2>
+  <% if @free_plan.present? || @light_plan.present? || @standard_plan.present? %>
+    <div class="table-responsive  margin_t_40">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th class="text-center bg_color_wht">フリープラン</th>
+            <th class="text-center bg_color_wht">ライトプラン</th>
+            <th class="text-center bg_color_wht">スタンダードプラン</th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr>
+            <td class="text-center"><%= @free_plan %></td>
+            <td class="text-center"><%= @light_plan %></td>
+            <td class="text-center"><%= @standard_plan %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>

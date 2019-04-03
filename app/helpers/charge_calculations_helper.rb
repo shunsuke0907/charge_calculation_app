@@ -2,7 +2,7 @@ module ChargeCalculationsHelper
   
   def free_plan(send_count)
     if send_count > 1000
-      return 'フリープランの上限は1000通です（追加購入不可）'
+      return '上限は1,000通です（追加購入不可）'
     end
     
     return "月間利用料は0円です"
@@ -10,7 +10,7 @@ module ChargeCalculationsHelper
   
   def light_plan(send_count)
     if send_count <=  15000
-      return '月間利用料は5000円です'
+      return '月間利用料は5,000円です'
     end
     
     total = ((send_count - 15000) * 5) + 5000
@@ -19,11 +19,12 @@ module ChargeCalculationsHelper
   
   def standard_plan(send_count)
     if send_count <= 45000 
-      return '月間利用料は15000円です'
+      return '月間利用料は15,000円です'
     end
     
     array = []
     additions = send_count - 45000
+    is_one_million_over = additions > 1000000
     count = additions / 50000
     
     if count <= 2
@@ -60,7 +61,9 @@ module ChargeCalculationsHelper
       end
     end
     
-    if additions < 1000000
+    if is_one_million_over
+      return '上限は1,000,000通です'
+    else
       additional_delivery = 0
       array.count.times do |count|
         if count === 0 # additions <= 50000
@@ -97,37 +100,9 @@ module ChargeCalculationsHelper
           additional_delivery += (array[count] * 1.5).floor
         end
       end
-    else
-      return 'スタンダードプランの上限は1,000,000通です'
     end
     
     total = additional_delivery.to_i + 15000
     return "月間利用料は#{total.to_s(:delimited)}円です"
   end
 end
-
-# if additions <= 50000
-#       unit_price = 3.0
-#     elsif 50001 <= additions && additions <= 100000
-#       unit_price = 2.8
-#     elsif 100001 <= additions && additions <= 200000
-#       unit_price = 2.6
-#     elsif 200001 <= additions && additions <= 300000
-#       unit_price = 2.4
-#     elsif 300001 <= additions && additions <= 400000
-#       unit_price = 2.2
-#     elsif 400001 <= additions && additions <= 500000
-#       unit_price = 2.0
-#     elsif 500001 <= additions && additions <= 600000
-#       unit_price = 1.9
-#     elsif 600001 <= additions && additions <= 700000
-#       unit_price = 1.8
-#     elsif 700001 <= additions && additions <= 800000
-#       unit_price = 1.7
-#     elsif 800001 <= additions && additions <= 900000
-#       unit_price = 1.6
-#     elsif 900001 <= additions && additions <= 1000000
-#       unit_price = 1.5
-#     else
-#       return 'スタンダードプランの上限は1,000,000通です'
-#     end

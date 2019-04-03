@@ -7,15 +7,30 @@ class StaticPagesController < ApplicationController
   def calculate
     send_count = params[:send_count].to_i
     
-    case params[:plan].to_i
-    when 1
-      @monthly_amount = free_plan(send_count)
-    when 2
-      @monthly_amount = light_plan(send_count)
-    when 3
-      @monthly_amount = standard_plan(send_count)
-    end
+    # case params[:plan].to_i
+    # when 1
+      @free_plan = free_plan(send_count)
+    # when 2
+      @light_plan = light_plan(send_count)
+    # when 3
+      @standard_plan = standard_plan(send_count)
+    # end
 
     render action: :home
   end
+  
+  # def calculate
+  #   send_count = params[:send_count].to_i
+    
+  #   case params[:plan].to_i
+  #   when 1
+  #     @monthly_amount = free_plan(send_count)
+  #   when 2
+  #     @monthly_amount = light_plan(send_count)
+  #   when 3
+  #     @monthly_amount = standard_plan(send_count)
+  #   end
+
+  #   render action: :home
+  # end
 end
