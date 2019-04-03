@@ -4,18 +4,22 @@
 
 <div class="table-responsive">
   <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th class="text-center">配信月</th>
-        <th class="text-center">プラン</th>
-        <th class="text-center">月間配信通数</th>
-        <th class="text-center">合計金額</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= render @delivery_histories %>
-    </tbody>
+    <% if @delivery_histories.present? %>
+      <thead>
+        <tr>
+          <th class="text-center">配信月</th>
+          <th class="text-center">プラン</th>
+          <th class="text-center">月間配信通数</th>
+          <th class="text-center">合計金額</th>
+          <th></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <%= render @delivery_histories %>
+      </tbody>
+    <% else %>
+      <p class="text-center margin_t_15">現在、配信情報は登録されていません</p>
+    <% end %>
   </table>
 </div>

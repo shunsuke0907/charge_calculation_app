@@ -8,7 +8,7 @@
   
   <div class="center padding_r_200 padding_l_200">
     <%= form_tag '/calculate', method: :get, class: "" do %>
-      <%= number_field_tag :send_count, params[:send_count], class: "form-control" %>
+      <%= number_field_tag :send_count, params[:send_count], class: "form-control", required: 'required' %>
       <%= submit_tag '計算する', name: 'calculate', class: "btn btn-lg btn-primary margin_t_15" %>
     <% end %>
   </div>

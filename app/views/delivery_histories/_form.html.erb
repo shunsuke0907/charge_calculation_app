@@ -1,19 +1,19 @@
 <%= form_for(@delivery_history) do |f| %>
   <div>
     <%= f.label '配信月' %><br>
-    <%= f.date_select :delivery_month, discard_day: true, class: 'form-control' %>
+    <%= f.date_select :delivery_month, discard_day: true, use_month_numbers: true, class: 'form-control' %>
   </div>
 
   <div>
     <%= f.label 'プラン' %><br>
-    <%= f.select :plan, plan_select_list, :prompt => '選択してください', :class => 'form-control margin_t_52_p' %>
+    <%= f.select :plan, plan_select_list, {}, :class => 'form-control margin_t_52_p' %>
   </div>
   
   <%= f.label '月間配信通数' %>
-  <%= f.number_field :send_count, class: 'form-control' %>
+  <%= f.number_field :send_count, class: 'form-control', required: 'required' %>
   
   <%= f.label '合計金額' %>
-  <%= f.number_field :total_amount, class: 'form-control' %>
+  <%= f.number_field :total_amount, class: 'form-control', required: 'required' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
